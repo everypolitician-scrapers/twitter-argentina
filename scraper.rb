@@ -12,8 +12,6 @@ def twitter
   end
 end
 
-# https://twitter.com/SenadoGovCo/lists/senadores-colombia/
-
 twitter.list_members('lechinoise', 'politic-arg').each do |person|
   data = {
     id: person.id,
