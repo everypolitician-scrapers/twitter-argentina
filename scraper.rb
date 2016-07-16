@@ -15,12 +15,14 @@ def twitter
   end
 end
 
-twitter.list_members('lechinoise', 'politic-arg').each do |person|
+people = twitter.list_members('lechinoise', 'politic-arg').map do |person|
   data = {
     id: person.id,
     name: person.name,
     twitter: person.screen_name,
   }
   data[:image] = person.profile_image_url_https(:original).to_s unless person.default_profile_image?
-  ScraperWiki.save_sqlite([:id], data)
+  data
 end
+
+ScraperWiki.save_sqlite([:id], people)
