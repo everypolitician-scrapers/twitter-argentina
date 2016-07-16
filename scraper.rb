@@ -23,13 +23,12 @@ class TwitterList
 
   def people
     client.list_members(user, list).map do |person|
-      data = {
+      {
         id: person.id,
         name: person.name,
         twitter: person.screen_name,
+        image: person.default_profile_image? ? '' : person.profile_image_url_https(:original).to_s,
       }
-      data[:image] = person.profile_image_url_https(:original).to_s unless person.default_profile_image?
-      data
     end
   end
 end
