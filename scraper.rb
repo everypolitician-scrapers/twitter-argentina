@@ -7,21 +7,20 @@ class TwitterList
 
   attr_accessor :user, :list, :client
 
-  def initialize(user, list)
-    @user = user
-    @list = list
+  def initialize(tokens)
+    if tokens.has_key? :twitter_tokens
+      consumer_key, consumer_secret, access_token, access_secret = tokens[:twitter_tokens].split('|')
+    end
+
     @client = Twitter::REST::Client.new do |config|
-      if ENV.key? 'MORPH_TWITTER_TOKENS'
-        consumer_key, consumer_secret, access_token, access_secret = ENV['MORPH_TWITTER_TOKENS'].split('|')
-      end
-      config.consumer_key        = ENV['MORPH_TWITTER_CONSUMER_KEY']        || consumer_key
-      config.consumer_secret     = ENV['MORPH_TWITTER_CONSUMER_SECRET']     || consumer_secret
-      config.access_token        = ENV['MORPH_TWITTER_ACCESS_TOKEN']        || access_token
-      config.access_token_secret = ENV['MORPH_TWITTER_ACCESS_TOKEN_SECRET'] || access_secret
+      config.consumer_key        = tokens[:consumer_key]        || consumer_key
+      config.consumer_secret     = tokens[:consumer_secret]     || consumer_secret
+      config.access_token        = tokens[:access_token]        || access_token
+      config.access_token_secret = tokens[:access_token_secret] || access_secret
     end
   end
 
-  def people
+  def people(user, list)
     client.list_members(user, list).map do |person|
       {
         id: person.id,
@@ -33,5 +32,5 @@ class TwitterList
   end
 end
 
-people = TwitterList.new('lechinoise', 'politic-arg').people
+people = TwitterList.new( twitter_tokens: ENV['MORPH_TWITTER_TOKENS'] ).people('lechinoise', 'politic-arg')
 ScraperWiki.save_sqlite([:id], people)
