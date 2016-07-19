@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/everypolitician/twitter_list.git
+  revision: 58af21b2861e4a5f554a1033566911b5200b57f6
+  specs:
+    twitter_list (0.0.0)
+
+GIT
   remote: https://github.com/openaustralia/scraperwiki-ruby.git
   revision: fc50176812505e463077d5c673d504a6a234aa78
   branch: morph_defaults
@@ -68,6 +74,7 @@ DEPENDENCIES
   pry
   scraperwiki!
   twitter
+  twitter_list!
 
 BUNDLED WITH
    1.12.3
