@@ -1,8 +1,9 @@
 GIT
   remote: https://github.com/everypolitician/twitter_list.git
-  revision: 58af21b2861e4a5f554a1033566911b5200b57f6
+  revision: 90832b604c79d9dd4c7639dea8133008b1cef9e1
   specs:
-    twitter_list (0.0.0)
+    twitter_list (0.0.2)
+      twitter
 
 GIT
   remote: https://github.com/openaustralia/scraperwiki-ruby.git
@@ -16,26 +17,26 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.4.0)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
     buftok (0.2.0)
     coderay (1.1.1)
-    domain_name (0.5.20160615)
+    domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.1.1)
-    equalizer (0.0.10)
-    faraday (0.9.2)
+    equalizer (0.0.11)
+    faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
-    http (1.0.4)
+    http (2.2.2)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
       http-form_data (~> 1.0.1)
       http_parser.rb (~> 0.6.0)
-    http-cookie (1.0.2)
+    http-cookie (1.0.3)
       domain_name (~> 0.5)
-    http-form_data (1.0.1)
+    http-form_data (1.0.3)
     http_parser.rb (0.6.0)
     httpclient (2.8.0)
-    json (1.8.3)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
@@ -45,26 +46,26 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    public_suffix (2.0.5)
     simple_oauth (0.3.1)
     slop (3.6.0)
     sqlite3 (1.3.11)
     sqlite_magic (0.0.6)
       sqlite3
-    thread_safe (0.3.5)
-    twitter (5.16.0)
-      addressable (~> 2.3)
+    thread_safe (0.3.6)
+    twitter (6.1.0)
+      addressable (~> 2.5)
       buftok (~> 0.2.0)
-      equalizer (= 0.0.10)
-      faraday (~> 0.9.0)
-      http (~> 1.0)
+      equalizer (= 0.0.11)
+      faraday (~> 0.11.0)
+      http (~> 2.1)
       http_parser.rb (~> 0.6.0)
-      json (~> 1.8)
-      memoizable (~> 0.4.0)
-      naught (~> 1.0)
-      simple_oauth (~> 0.3.0)
+      memoizable (~> 0.4.2)
+      naught (~> 1.1)
+      simple_oauth (~> 0.3.1)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.2)
+    unf_ext (0.0.7.4)
 
 PLATFORMS
   ruby
@@ -77,4 +78,4 @@ DEPENDENCIES
   twitter_list!
 
 BUNDLED WITH
-   1.12.3
+   1.14.6
